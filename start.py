@@ -13,8 +13,13 @@ def do_something():
 p1 = multiprocessing.Process(target=do_something)
 p2 = multiprocessing.Process(target=do_something)
 
+# Process start but it not finishing
 p1.start()
 p2.start()
+
+# With join we get go actually run the multiprocess
+p1.join()
+p2.join()
 
 finish = time.perf_counter()
 
