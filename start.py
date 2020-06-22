@@ -17,13 +17,15 @@ def do_something(seconds):
 with concurrent.futures.ProcessPoolExecutor() as executor:
 
     secs=[5, 4, 3, 2, 1]
-    results = [executor.submit(do_something, sec) for sec in secs] #list comprehension
+    results = executor.map(do_something, secs) # map is a loop for iterable objects
+    # when using submit method returns future objects
+    # map return the results
+    for result in results: # results are in order
+        print(result) # exceptions should be here
 
-    for f in concurrent.futures.as_completed(results): #execute futures in completed order
-        print(f.result())
 
-# A list to store the joining of
-processes = []
+# # A list to store the joining of
+# processes = []
 
 
 # # This is a loop to start the processes
