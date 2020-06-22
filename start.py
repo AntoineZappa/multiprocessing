@@ -20,23 +20,9 @@ with concurrent.futures.ProcessPoolExecutor() as executor:
     results = executor.map(do_something, secs) # map is a loop for iterable objects
     # when using submit method returns future objects
     # map return the results
-    for result in results: # results are in order
-        print(result) # exceptions should be here
+    # for result in results: # results are in order
+    #     print(result) # exceptions should be here
 
-
-# # A list to store the joining of
-# processes = []
-
-
-# # This is a loop to start the processes
-# for _ in range(10): #underscore indicates a throwaway variable name
-#     # Because the variable seconds it's added, we need an arg to the multiprocessing
-#     p = multiprocessing.Process(target=do_something, args=[1.5])
-#     p.start()
-#     processes.append(p)
-# #loop to join
-# for process in processes:
-#     process.join()
 
 finish = time.perf_counter()
 
